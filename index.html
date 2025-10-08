@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Health Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Smart Health Assistant</h1>
+    <p>Your quick symptom checker & guide</p>
+  </header>
+
+  <main>
+    <!-- Symptom Input Form -->
+    <section class="form-section">
+      <h2>Check Your Symptoms</h2>
+      <form id="symptomForm">
+        <textarea id="symptoms" placeholder="Enter your symptoms here..."></textarea>
+        <button type="submit">Analyze</button>
+      </form>
+    </section>
+
+    <!-- Results Section -->
+    <section class="results-section" id="results">
+      <h2>Possible Conditions</h2>
+      <div id="output">
+        <p>Enter symptoms above to see results.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Smart Health Assistant | Project Demo</p>
+  </footer>
+
+  <script>
+    // Simple frontend demo JS (replace later with backend calls)
+    const form = document.getElementById("symptomForm");
+    const output = document.getElementById("output");
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      const symptoms = document.getElementById("symptoms").value;
+
+      if(symptoms.trim() === ""){
+        output.innerHTML = "<p class='error'>⚠️ Please enter some symptoms.</p>";
+        return;
+      }
+
+      // Mock result (in real app, call backend API here)
+      output.innerHTML = `
+        <ul>
+          <li><b>Flu</b> – Rest, drink fluids, take paracetamol.</li>
+          <li><b>Common Cold</b> – Stay hydrated, vitamin C, rest.</li>
+          <li><b>COVID-19</b> – Isolate, test, consult doctor if fever persists.</li>
+        </ul>
+      `;
+    });
+  </script>
+</body>
+</html>
