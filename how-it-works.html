@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <meta
+      name="description"
+      content="SympAI How It Works - Learn our step-by-step process for symptom analysis and health recommendations."
+    />
+    <title>How It Works - SympAI</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header / Navigation -->
+    <header>
+      <nav>
+        <div class="logo">
+          <div class="logo-icon" aria-hidden="true">S</div>
+          <span class="logo-text hidden-mobile">SympAI</span>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html#how-it-works" style="color: hsl(var(--gold));">How It Works</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="trust-security.html">Trust &amp; Security</a></li>
+        </ul>
+
+        <div class="auth-section">
+          <button class="btn btn-primary btn-sm" id="getStartedBtn">Get Started</button>
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+              <path d="M3 6h18M3 12h18M3 18h18" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-12 py-20" style="background: linear-gradient(to bottom right, hsla(var(--primary), 0.05), hsla(var(--gold), 0.05));">
+      <div class="container">
+        <div class="section-header">
+          <h1 class="section-title" style="font-size: 2.5rem;">Three Simple Steps</h1>
+          <p class="section-subtitle">
+            From symptom input to personalized recommendations in minutes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Step-by-step Process -->
+    <section class="py-12 py-20">
+      <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr; gap: 4rem;">
+          <!-- Step 1 -->
+          <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center;">
+            <div>
+              <div class="step-counter">
+                <span class="step-number">1</span>
+              </div>
+              <h2 style="font-size: 2rem; margin-bottom: 1rem; text-align: center; color: hsl(var(--primary));">
+                Describe Your Symptoms
+              </h2>
+              <p style="font-size: 1.125rem; color: hsla(var(--foreground), 0.7); text-align: center; line-height: 1.8; margin-bottom: 2rem;">
+                Tell us what you're experiencing. Choose the method that works best for you:
+              </p>
+              <ul style="list-style: none; display: grid; gap: 1.5rem; padding: 0; margin: 0;">
+                <li style="display: flex; align-items: flex-start; gap: 1rem;">
+                  <span style="color: hsl(var(--gold)); font-size: 1.5rem; flex-shrink: 0;">📝</span>
+                  <div>
+                    <h4 style="margin: 0 0 0.5rem 0; color: hsl(var(--primary));">Text Input</h4>
+                    <p style="margin: 0; font-size: 0.95rem; color: hsla(var(--foreground), 0.7);">Type your symptoms naturally, like you would describe them to a friend.</p>
+                  </div>
+                </li>
+
+                <li style="display: flex; align-items: flex-start; gap: 1rem;">
+                  <span style="color: hsl(var(--gold)); font-size: 1.5rem; flex-shrink: 0;">🎤</span>
+                  <div>
+                    <h4 style="margin: 0 0 0.5rem 0; color: hsl(var(--primary));">Voice Input</h4>
+                    <p style="margin: 0; font-size: 0.95rem; color: hsla(var(--foreground), 0.7);">Speak your symptoms and we'll transcribe them automatically.</p>
+                  </div>
+                </li>
+
+                <li style="display: flex; align-items: flex-start; gap: 1rem;">
+                  <span style="color: hsl(var(--gold)); font-size: 1.5rem; flex-shrink: 0;">📸</span>
+                  <div>
+                    <h4 style="margin: 0 0 0.5rem 0; color: hsl(var(--primary));">Image Upload</h4>
+                    <p style="margin: 0; font-size: 0.95rem; color: hsla(var(--foreground), 0.7);">Upload photos of any visible symptoms for analysis.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center;">
+            <div>
+              <div class="step-counter">
+                <span class="step-number">2</span>
+              </div>
+              <h2 style="font-size: 2rem; margin-bottom: 1rem; text-align: center; color: hsl(var(--primary));">
+                AI Analysis &amp; Matching
+              </h2>
+              <p style="font-size: 1.125rem; color: hsla(var(--foreground), 0.7); text-align: center; line-height: 1.8; margin-bottom: 2rem;">
+                Our advanced AI engine processes your information in seconds:
+              </p>
+              <div style="display: grid; gap: 1.5rem;">
+                <div style="padding: 1.5rem; border: 1px solid hsl(var(--border)); border-radius: 1rem; background-color: hsla(var(--gold), 0.05);">
+                  <h4 style="margin: 0 0 0.75rem 0; color: hsl(var(--primary));">Medical Database Search</h4>
+                  <p style="margin: 0; font-size: 0.95rem; color: hsla(var(--foreground), 0.7);">
+                    Searches through 50+ million medical cases and peer-reviewed research to find matching conditions.
+                  </p>
+                </div>
+
+                <div style="padding: 1.5rem; border: 1px solid hsl(var(--border)); border-radius: 1rem; background-color: hsla(var(--gold), 0.05);">
+                  <h4 style="margin: 0 0 0.75rem 0; color: hsl(var(--primary));">Pattern Recognition</h4>
+                  <p style="margin: 0; font-size: 0.95rem; color: hsla(var(--foreground), 0.7);">
+                    Identifies symptom patterns and correlations that doctors use in real-world diagnostics.
+                  </p>
+                </div>
+
+                <div style="padding: 1.5rem; border: 1px solid hsl(var(--border)); border-radius: 1rem; background-color: hsla(var(--gold), 0.05);">
+                  <h4 style="margin: 0 0 0.75rem 0; color: hsl(var(--primary));">Risk Assessment</h4>
+                  <p style="margin: 0; font-size: 0.95rem; color: hsla(var(--foreground), 0.7);">
+                    Evaluates urgency and severity to prioritize your health concerns appropriately.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center;">
+            <div>
+              <div class="step-counter">
+                <span class="step-number">3</span>
+              </div>
+              <h2 style="font-size: 2rem; margin-bottom: 1rem; text-align: center; color: hsl(var(--primary));">
+                Get Personalized Recommendations
+              </h2>
+              <p style="font-size: 1.125rem; color: hsla(var(--foreground), 0.7); text-align: center; line-height: 1.8; margin-bottom: 2rem;">
+                Receive actionable guidance tailored to your situation:
+              </p>
+              <ul style="list-style: none; display: grid; gap: 1.5rem; padding: 0; margin: 0;">
+                <li style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.5rem; border: 1px solid hsl(var(--border)); border-radius: 1rem; background-color: hsla(var(--gold), 0.05);">
+                  <span style="color: hsl(var(--gold)); font-size: 1.5rem; flex-shrink: 0;">🏥</span>
+                  <div>
+                    <h4 style="margin: 0 0 0.5rem 0; color: hsl(var(--primary));">See a Doctor</h4>
+                    <p style="margin: 0; font-size: 0.95rem; color: hsla(var(--foreground), 0.7);">Urgent situations where professional medical evaluation is needed immediately.</p>
+                  </div>
+                </li>
+
+                <li style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.5rem; border: 1px solid hsl(var(--border)); border-radius: 1rem; background-color: hsla(var(--gold), 0.05);">
+                  <span style="color: hsl(var(--gold)); font-size: 1.5rem; flex-shrink: 0;">📋</span>
+                  <div>
+                    <h4 style="margin: 0 0 0.5rem 0; color: hsl(var(--primary));">Monitor Symptoms</h4>
+                    <p style="margin: 0; font-size: 0.95rem; color: hsla(var(--foreground), 0.7);">Track your symptoms and schedule a check-up if symptoms persist or worsen.</p>
+                  </div>
+                </li>
+
+                <li style="display: flex; align-items: flex-start; gap: 1rem; padding: 1.5rem; border: 1px solid hsl(var(--border)); border-radius: 1rem; background-color: hsla(var(--gold), 0.05);">
+                  <span style="color: hsl(var(--gold)); font-size: 1.5rem; flex-shrink: 0;">🏠</span>
+                  <div>
+                    <h4 style="margin: 0 0 0.5rem 0; color: hsl(var(--primary));">Self-Care</h4>
+                    <p style="margin: 0; font-size: 0.95rem; color: hsla(var(--foreground), 0.7);">Practical steps you can take at home to manage your symptoms safely.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What Happens Next -->
+    <section class="py-12 py-20" style="background-color: hsla(var(--primary), 0.05); border-top: 1px solid hsl(var(--border)); border-bottom: 1px solid hsl(var(--border));">
+      <div class="container">
+        <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">What Happens Next?</h2>
+
+        <div class="feature-grid" style="grid-template-columns: 1fr;">
+          <div class="card">
+            <h3 class="card-title">Access Your Report</h3>
+            <p class="card-description">
+              Download a detailed PDF report of your consultation summary to share with healthcare providers if needed.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Chat with AI Assistant</h3>
+            <p class="card-description">
+              Ask follow-up questions about your symptoms or recommendations in our conversational chat interface.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Track Your Health</h3>
+            <p class="card-description">
+              Monitor your symptoms over time and receive smart reminders for follow-ups and check-ins.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="card-title">Connect with Providers</h3>
+            <p class="card-description">
+              Share your consultation results with doctors or healthcare providers directly through our platform.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="py-12 py-20">
+      <div class="container">
+        <h2 class="section-title" style="text-align: center; margin-bottom: 3rem;">From Input to Insights</h2>
+
+        <div style="display: grid; grid-template-columns: 1fr; gap: 2rem; max-width: 600px; margin: 0 auto;">
+          <div style="display: flex; gap: 1.5rem;">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <div style="width: 3rem; height: 3rem; border-radius: 9999px; background-color: hsl(var(--gold)); display: flex; align-items: center; justify-content: center; color: hsl(var(--primary)); font-weight: 600;">1</div>
+              <div style="width: 3px; height: 3rem; background-color: hsl(var(--gold)); margin-top: 0.5rem;"></div>
+            </div>
+            <div style="padding-top: 0.5rem;">
+              <h4 style="margin: 0 0 0.5rem 0; color: hsl(var(--primary));">Input Symptoms</h4>
+              <p style="margin: 0; font-size: 0.875rem; color: hsla(var(--foreground), 0.7);">30 seconds</p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1.5rem;">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <div style="width: 3rem; height: 3rem; border-radius: 9999px; background-color: hsl(var(--gold)); display: flex; align-items: center; justify-content: center; color: hsl(var(--primary)); font-weight: 600;">2</div>
+              <div style="width: 3px; height: 3rem; background-color: hsl(var(--gold)); margin-top: 0.5rem;"></div>
+            </div>
+            <div style="padding-top: 0.5rem;">
+              <h4 style="margin: 0 0 0.5rem 0; color: hsl(var(--primary));">AI Processing</h4>
+              <p style="margin: 0; font-size: 0.875rem; color: hsla(var(--foreground), 0.7);">15-45 seconds</p>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 1.5rem;">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <div style="width: 3rem; height: 3rem; border-radius: 9999px; background-color: hsl(var(--gold)); display: flex; align-items: center; justify-content: center; color: hsl(var(--primary)); font-weight: 600;">3</div>
+            </div>
+            <div style="padding-top: 0.5rem;">
+              <h4 style="margin: 0 0 0.5rem 0; color: hsl(var(--primary));">Get Results</h4>
+              <p style="margin: 0; font-size: 0.875rem; color: hsla(var(--foreground), 0.7);">Instantly available</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-12 py-20" style="background: linear-gradient(to right, hsla(var(--primary), 0.05), hsla(var(--gold), 0.05));">
+      <div class="container" style="text-align: center;">
+        <h2 class="section-title" style="margin-bottom: 1.5rem;">
+          Ready to Get Started?
+        </h2>
+        <p class="section-subtitle" style="margin-bottom: 2rem;">
+          Experience the power of AI-powered health analysis in seconds.
+        </p>
+        <button class="btn btn-primary btn-lg" id="startBtn">Start Your Assessment</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-trust-bar">
+        <div class="container">
+          <h3 style="text-align: center; font-size: 0.875rem; font-weight: 600; margin-bottom: 1.5rem;">
+            Trusted by Healthcare Professionals
+          </h3>
+          <div class="footer-trust-grid">
+            <div class="trust-item">
+              <svg class="trust-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              <div>
+                <p class="trust-item-title">HIPAA Compliant</p>
+                <p class="trust-item-text">256-bit encryption</p>
+              </div>
+            </div>
+
+            <div class="trust-item">
+              <svg class="trust-item-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              </svg>
+              <div>
+                <p class="trust-item-title">Clinical Grade</p>
+                <p class="trust-item-text">AI trained on medical data</p>
+              </div>
+            </div>
+
+            <div class="trust-item">
+              <svg class="trust-item-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <div>
+                <p class="trust-item-title">Instant Results</p>
+                <p class="trust-item-text">24/7 availability</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-main">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-section">
+              <h4>SympAI</h4>
+              <p>Your trusted AI-powered health assistant for symptom checking and medical guidance.</p>
+            </div>
+
+            <div class="footer-section">
+              <h5 style="font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem;">Product</h5>
+              <ul class="footer-links">
+                <li><a href="features.html">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Blog</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-section">
+              <h5 style="font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem;">Company</h5>
+              <ul class="footer-links">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Press</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-section">
+              <h5 style="font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem;">Legal</h5>
+              <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="trust-security.html">Data Protection</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <p class="footer-copy">
+              © 2024 SympAI. All rights reserved. Not a substitute for professional medical advice.
+            </p>
+            <div class="footer-social" aria-label="Social links">
+              <a href="#" aria-label="Twitter">Twitter</a>
+              <a href="#" aria-label="LinkedIn">LinkedIn</a>
+              <a href="#" aria-label="Instagram">Instagram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer">
+        <p>
+          <strong>Medical Disclaimer:</strong> SympAI provides general health information only and is not a substitute for professional medical advice. Always consult with a qualified healthcare provider for diagnosis and treatment.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+
+      if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
+          navLinks.classList.toggle("active");
+        });
+      }
+
+      // Start buttons
+      const getStartedBtn = document.getElementById("getStartedBtn");
+      const startBtn = document.getElementById("startBtn");
+
+      if (getStartedBtn) {
+        getStartedBtn.addEventListener("click", () => {
+          window.location.href = "index.html";
+        });
+      }
+
+      if (startBtn) {
+        startBtn.addEventListener("click", () => {
+          window.location.href = "index.html";
+        });
+      }
+    </script>
+  </body>
+</html>
