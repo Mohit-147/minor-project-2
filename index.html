@@ -1,63 +1,400 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Health Assistant</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header>
-    <h1>Smart Health Assistant</h1>
-    <p>Your quick symptom checker & guide</p>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="SympAI - AI-powered symptom checker and health assistant. Get instant health guidance anytime, anywhere."
+    />
+    <title>SympAI - Your Health, Understood</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Header / Navigation -->
+    <header>
+      <nav>
+        <div class="logo">
+          <div class="logo-icon">S</div>
+          <span class="logo-text hidden-mobile">SympAI</span>
+        </div>
 
-  <main>
-    <!-- Symptom Input Form -->
-    <section class="form-section">
-      <h2>Check Your Symptoms</h2>
-      <form id="symptomForm">
-        <textarea id="symptoms" placeholder="Enter your symptoms here..."></textarea>
-        <button type="submit">Analyze</button>
-      </form>
-    </section>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="trust-security.html">Trust & Security</a></li>
+        </ul>
 
-    <!-- Results Section -->
-    <section class="results-section" id="results">
-      <h2>Possible Conditions</h2>
-      <div id="output">
-        <p>Enter symptoms above to see results.</p>
+        <div class="auth-section">
+  <a href="auth.html" class="btn btn-secondary btn-sm" style="margin-right: 0.5rem;">Sign In</a>
+  <button class="btn btn-primary btn-sm" id="getStartedBtn" onclick="window.location.href='auth.html'">Get Started</button>
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 6h18M3 12h18M3 18h18" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-grid">
+            <!-- Left Column -->
+            <div class="animate-fadeInUp">
+              <h1 class="hero-title">
+                Your Health,
+                <span class="highlight">Understood</span>
+              </h1>
+              <p class="hero-description">
+                SympAI combines medical expertise with artificial intelligence
+                to help you understand your symptoms faster. Get instant,
+                reliable health guidance anytime, anywhere.
+              </p>
+
+              <!-- Trust Badges -->
+              <div class="trust-badges">
+                <div class="trust-badge">
+                  <span class="trust-badge-text">Clinical Grade AI</span>
+                </div>
+                <div class="trust-badge">
+                  <span class="trust-badge-text">HIPAA Compliant</span>
+                </div>
+                <div class="trust-badge">
+                  <span class="trust-badge-text">Always Private</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Column - Symptom Input -->
+            <div class="animate-fadeInUp" style="animation-delay: 0.1s;">
+              <div class="glass-card symptom-input">
+                <h3>Describe Your Symptoms</h3>
+                <form class="symptom-form" id="symptomForm">
+                  <div class="symptom-input-wrapper">
+                    <input
+                      type="text"
+                      id="symptomInput"
+                      placeholder="e.g., headache, fever, sore throat..."
+                      aria-label="Symptom input"
+                    />
+                    <button
+                      type="button"
+                      class="symptom-input-clear"
+                      id="clearBtn"
+                      style="display: none;"
+                      aria-label="Clear input"
+                    >
+                      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="9" cy="9" r="8" />
+                        <path d="M6 6l6 6M12 6l-6 6" />
+                      </svg>
+                    </button>
+                  </div>
+
+                  <div class="symptom-methods">
+                    <button type="button" class="symptom-method" id="voiceBtn">
+                      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 1v6m0 0a5 5 0 0 1-5 5m5-5a5 5 0 0 0-5 5v4" />
+                      </svg>
+                      Voice
+                    </button>
+                    <label class="symptom-method">
+                      <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="17 8 12 3 7 8" />
+                        <line x1="12" y1="3" x2="12" y2="15" />
+                      </svg>
+                      Image
+                      <input type="file" accept="image/*" style="display: none;" aria-label="Upload image" />
+                    </label>
+                  </div>
+
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    style="width: 100%; justify-content: center;"
+                    id="checkBtn"
+                  >
+                    <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                      <circle cx="11" cy="11" r="8" />
+                      <path d="m21 21-4.35-4.35" />
+                    </svg>
+                    Check Symptoms
+                  </button>
+                </form>
+
+                <p class="symptom-info">
+                  🔒 Your health information is encrypted and secure
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <p>© 2025 Smart Health Assistant | Project Demo</p>
-  </footer>
+    <!-- Features Section -->
+    <section class="py-12 md:py-20" style="background-color: hsla(var(--primary), 0.05); border-top: 1px solid hsl(var(--border)); border-bottom: 1px solid hsl(var(--border));">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Why Choose SympAI?</h2>
+          <p class="section-subtitle">
+            Experience the future of healthcare with our advanced AI technology
+            designed specifically for symptom analysis.
+          </p>
+        </div>
 
-  <script>
-    // Simple frontend demo JS (replace later with backend calls)
-    const form = document.getElementById("symptomForm");
-    const output = document.getElementById("output");
+        <div class="feature-grid">
+          <div class="feature-card">
+            <span class="feature-icon">⚡</span>
+            <h3>Instant Analysis</h3>
+            <p>Get immediate insights about your symptoms without waiting for appointments.</p>
+          </div>
 
-    form.addEventListener("submit", function(e) {
-      e.preventDefault();
-      const symptoms = document.getElementById("symptoms").value;
+          <div class="feature-card">
+            <span class="feature-icon">🏥</span>
+            <h3>Medical Expertise</h3>
+            <p>Our AI is trained on extensive medical databases and clinical research.</p>
+          </div>
 
-      if(symptoms.trim() === ""){
-        output.innerHTML = "<p class='error'>⚠️ Please enter some symptoms.</p>";
-        return;
-      }
+          <div class="feature-card">
+            <span class="feature-icon">🔒</span>
+            <h3>Privacy First</h3>
+            <p>Your health data is encrypted with military-grade security standards.</p>
+          </div>
 
-      // Mock result (in real app, call backend API here)
-      output.innerHTML = `
-        <ul>
-          <li><b>Flu</b> – Rest, drink fluids, take paracetamol.</li>
-          <li><b>Common Cold</b> – Stay hydrated, vitamin C, rest.</li>
-          <li><b>COVID-19</b> – Isolate, test, consult doctor if fever persists.</li>
-        </ul>
-      `;
-    });
-  </script>
-</body>
+          <div class="feature-card">
+            <span class="feature-icon">👤</span>
+            <h3>Personalized Care</h3>
+            <p>Tailored recommendations based on your unique health profile.</p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-icon">⏰</span>
+            <h3>24/7 Availability</h3>
+            <p>Get health guidance anytime, day or night, whenever you need it.</p>
+          </div>
+
+          <div class="feature-card">
+            <span class="feature-icon">📊</span>
+            <h3>Track Progress</h3>
+            <p>Monitor your symptoms over time with detailed health insights.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="py-12 md:py-20" id="how-it-works">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">How It Works</h2>
+          <p class="section-subtitle">
+            Three simple steps to get health insights in minutes.
+          </p>
+        </div>
+
+        <div class="feature-grid" style="grid-template-columns: 1fr; gap: 3rem;">
+          <div style="text-align: center;">
+            <div class="step-counter">
+              <span class="step-number">1</span>
+            </div>
+            <h3 class="section-title" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Describe Your Symptoms</h3>
+            <p class="section-subtitle" style="max-width: 100%; margin: 0;">
+              Tell us what you're experiencing using text, voice, or image uploads.
+            </p>
+          </div>
+
+          <div style="text-align: center;">
+            <div class="step-counter">
+              <span class="step-number">2</span>
+            </div>
+            <h3 class="section-title" style="font-size: 1.5rem; margin-bottom: 0.5rem;">AI Analysis</h3>
+            <p class="section-subtitle" style="max-width: 100%; margin: 0;">
+              Our advanced AI analyzes your symptoms against medical databases.
+            </p>
+          </div>
+
+          <div style="text-align: center;">
+            <div class="step-counter">
+              <span class="step-number">3</span>
+            </div>
+            <h3 class="section-title" style="font-size: 1.5rem; margin-bottom: 0.5rem;">Get Recommendations</h3>
+            <p class="section-subtitle" style="max-width: 100%; margin: 0;">
+              Receive personalized guidance and next steps for your health.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-12 md:py-20" style="background: linear-gradient(to right, hsla(var(--primary), 0.05), hsla(var(--gold), 0.05));">
+      <div class="container" style="text-align: center;">
+        <h2 class="section-title" style="margin-bottom: 1.5rem;">
+          Ready to Understand Your Health?
+        </h2>
+        <p class="section-subtitle" style="margin-bottom: 2rem;">
+          Join thousands of users who trust SympAI for reliable health guidance.
+        </p>
+        <button class="btn btn-primary btn-lg">Get Started Free</button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-trust-bar">
+        <div class="container">
+          <h3 style="text-align: center; font-size: 0.875rem; font-weight: 600; margin-bottom: 1.5rem;">
+            Trusted by Healthcare Professionals
+          </h3>
+          <div class="footer-trust-grid">
+            <div class="trust-item">
+              <svg class="trust-item-icon" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+              <div>
+                <p class="trust-item-title">HIPAA Compliant</p>
+                <p class="trust-item-text">256-bit encryption</p>
+              </div>
+            </div>
+            <div class="trust-item">
+              <svg class="trust-item-icon" fill="currentColor">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              </svg>
+              <div>
+                <p class="trust-item-title">Clinical Grade</p>
+                <p class="trust-item-text">AI trained on medical data</p>
+              </div>
+            </div>
+            <div class="trust-item">
+              <svg class="trust-item-icon" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <div>
+                <p class="trust-item-title">Instant Results</p>
+                <p class="trust-item-text">24/7 availability</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-main">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-section">
+              <h4>SympAI</h4>
+              <p>Your trusted AI-powered health assistant for symptom checking and medical guidance.</p>
+            </div>
+
+            <div class="footer-section">
+              <h5 style="font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem;">Product</h5>
+              <ul class="footer-links">
+                <li><a href="features.html">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Blog</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-section">
+              <h5 style="font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem;">Company</h5>
+              <ul class="footer-links">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Press</a></li>
+              </ul>
+            </div>
+
+            <div class="footer-section">
+              <h5 style="font-size: 0.875rem; font-weight: 600; margin-bottom: 1rem;">Legal</h5>
+              <ul class="footer-links">
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="trust-security.html">Data Protection</a></li>
+                <li><a href="#">Terms of Service</a></li>
+                <li><a href="#">Cookie Policy</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="footer-bottom">
+            <p class="footer-copy">
+              © 2024 SympAI. All rights reserved. Not a substitute for professional medical advice.
+            </p>
+            <div class="footer-social">
+              <a href="#">Twitter</a>
+              <a href="#">LinkedIn</a>
+              <a href="#">Instagram</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-disclaimer">
+        <p>
+          <strong>Medical Disclaimer:</strong> SympAI provides general health information only and is not a substitute for professional medical advice. Always consult with a qualified healthcare provider for diagnosis and treatment.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+      });
+
+      // Symptom input functionality
+      const symptomInput = document.getElementById("symptomInput");
+      const clearBtn = document.getElementById("clearBtn");
+      const voiceBtn = document.getElementById("voiceBtn");
+      const symptomForm = document.getElementById("symptomForm");
+
+      symptomInput.addEventListener("input", () => {
+        clearBtn.style.display = symptomInput.value ? "block" : "none";
+      });
+
+      clearBtn.addEventListener("click", () => {
+        symptomInput.value = "";
+        clearBtn.style.display = "none";
+        symptomInput.focus();
+      });
+
+      voiceBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        voiceBtn.classList.toggle("active");
+        if (voiceBtn.classList.contains("active")) {
+          voiceBtn.textContent = "🎤 Listening...";
+          // Simulate voice input
+          setTimeout(() => {
+            symptomInput.value = "headache, fever, fatigue";
+            clearBtn.style.display = "block";
+            voiceBtn.classList.remove("active");
+            voiceBtn.innerHTML = '<svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v6m0 0a5 5 0 0 1-5 5m5-5a5 5 0 0 0-5 5v4" /></svg>Voice';
+          }, 2000);
+        }
+      });
+
+      symptomForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (symptomInput.value.trim()) {
+          alert("Checking symptoms: " + symptomInput.value);
+        }
+      });
+
+      // Get Started button
+      document.getElementById("getStartedBtn").addEventListener("click", () => {
+        symptomInput.focus();
+        symptomInput.scrollIntoView({ behavior: "smooth" });
+      });
+    </script>
+  </body>
 </html>
