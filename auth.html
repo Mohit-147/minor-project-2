@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>SympAI – Login / Sign up</title>
+
+  <!-- Supabase JS CDN -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #f7e9c8, #eceff4);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .auth-wrapper {
+      width: 100%;
+      max-width: 900px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      background: #ffffffcc;
+      backdrop-filter: blur(14px);
+      border-radius: 24px;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+      overflow: hidden;
+    }
+
+    .auth-hero {
+      background: linear-gradient(135deg, #f4b942, #d89b2b);
+      color: #111827;
+      padding: 40px 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    .brand-logo span {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: #111827;
+      color: #fbbf24;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .hero-title {
+      margin-top: 40px;
+      font-size: 32px;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+    .hero-subtitle {
+      margin-top: 14px;
+      font-size: 15px;
+      opacity: 0.85;
+    }
+
+    .hero-badges {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .hero-badge {
+      font-size: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(17, 24, 39, 0.16);
+      background: #fef3c7aa;
+    }
+
+    .hero-footer {
+      margin-top: 48px;
+      font-size: 11px;
+      opacity: 0.9;
+    }
+
+    .auth-card {
+      padding: 32px 28px;
+      background: #f9fafb;
+    }
+
+    .tabs {
+      display: flex;
+      background: #e5e7eb;
+      border-radius: 999px;
+      padding: 4px;
+      margin-bottom: 24px;
+    }
+    .tab-btn {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: 8px 0;
+      font-size: 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .tab-btn.active {
+      background: #ffffff;
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.15);
+    }
+
+    h2 {
+      font-size: 22px;
+      margin-bottom: 4px;
+      color: #111827;
+    }
+    .subtitle {
+      font-size: 13px;
+      color: #6b7280;
+      margin-bottom: 18px;
+    }
+
+    .form-group {
+      margin-bottom: 14px;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 4px;
+      color: #374151;
+    }
+    input {
+      width: 100%;
+      padding: 10px 11px;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.16s, box-shadow 0.16s;
+      background: #fdfdfd;
+    }
+    input:focus {
+      border-color: #f59e0b;
+      box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.35);
+    }
+
+    .btn-primary {
+      width: 100%;
+      margin-top: 8px;
+      padding: 10px 0;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #fbbf24, #d97706);
+      color: #111827;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 10px 25px rgba(180, 83, 9, 0.45);
+      transition: transform 0.12s, box-shadow 0.12s, filter 0.12s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.04);
+      box-shadow: 0 14px 30px rgba(180, 83, 9, 0.55);
+    }
+
+    .helper-row {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .msg {
+      margin-top: 12px;
+      font-size: 13px;
+      min-height: 18px;
+    }
+    .msg.error { color: #b91c1c; }
+    .msg.success { color: #166534; }
+
+    .disclaimer {
+      margin-top: 16px;
+      font-size: 11px;
+      color: #6b7280;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 768px) {
+      .auth-wrapper {
+        grid-template-columns: 1fr;
+        max-width: 420px;
+      }
+      .auth-hero { display: none; }
+      .auth-card { padding: 28px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="auth-wrapper">
+  <!-- Left side: branding / hero -->
+  <div class="auth-hero">
+    <div>
+      <div class="brand-logo">
+        <span>S</span> SympAI
+      </div>
+
+      <div class="hero-title">
+        Welcome back to <span style="color:#fef9c3;">SympAI</span>
+      </div>
+      <div class="hero-subtitle">
+        Securely sign in to get AI-powered symptom insights.  
+        Your health data stays private and encrypted.
+      </div>
+
+      <div class="hero-badges">
+        <div class="hero-badge">🔒 End-to-end security</div>
+        <div class="hero-badge">🤖 AI-assisted guidance</div>
+        <div class="hero-badge">🌙 24/7 availability</div>
+      </div>
+    </div>
+
+    <div class="hero-footer">
+      ⚠ SympAI only provides general information, not a medical diagnosis.  
+      Always consult a doctor for real medical decisions.
+    </div>
+  </div>
+
+  <!-- Right side: auth card -->
+  <div class="auth-card">
+    <!-- Toggle -->
+    <div class="tabs">
+      <button class="tab-btn active" data-target="login-form">Log in</button>
+      <button class="tab-btn" data-target="signup-form">Create account</button>
+    </div>
+
+    <!-- LOGIN FORM -->
+    <div id="login-form">
+      <h2>Log in</h2>
+      <div class="subtitle">Access your SympAI dashboard.</div>
+
+      <div class="form-group">
+        <label for="login-email">Email</label>
+        <input id="login-email" type="email" placeholder="you@example.com" />
+      </div>
+
+      <div class="form-group">
+        <label for="login-password">Password</label>
+        <input id="login-password" type="password" placeholder="••••••••" />
+      </div>
+
+      <button class="btn-primary" id="login-btn">Continue</button>
+
+      <div class="helper-row">
+        <span></span>
+        <span>Forgot password? (We can add later)</span>
+      </div>
+
+      <div id="login-msg" class="msg"></div>
+    </div>
+
+    <!-- SIGNUP FORM -->
+    <div id="signup-form" style="display:none;">
+      <h2>Create your account</h2>
+      <div class="subtitle">Join SympAI to get personalised symptom insights.</div>
+
+      <div class="form-group">
+        <label for="signup-email">Email</label>
+        <input id="signup-email" type="email" placeholder="you@example.com" />
+      </div>
+
+      <div class="form-group">
+        <label for="signup-password">Password</label>
+        <input id="signup-password" type="password" placeholder="At least 6 characters" />
+      </div>
+
+      <button class="btn-primary" id="signup-btn">Create account</button>
+
+      <div id="signup-msg" class="msg"></div>
+
+      <p class="disclaimer">
+        By continuing, you agree that SympAI is for educational / informational purposes only
+        and does not replace professional medical advice.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  /* 1️⃣  SUPABASE PROJECT CONFIG
+      YAHAN APNA PROJECT URL AUR ANON KEY PASTE KAR
+  ------------------------------------------------------------------ */
+  const supabaseUrl = "https://rbskdgqmxrybfzvvyahr.supabase.co";      
+  const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJic2tkZ3FteHJ5YmZ6dnZ5YWhyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQyNTE3NzcsImV4cCI6MjA3OTgyNzc3N30.EfceBi6ReAds-ZwVYOiuHFaVcbiMXbRJWeAZrKzjnMo"; 
+  const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+  /* 2️⃣  TAB SWITCHING (Login <-> Signup)
+  ------------------------------------------------------------------ */
+  const tabButtons = document.querySelectorAll(".tab-btn");
+  const loginForm = document.getElementById("login-form");
+  const signupForm = document.getElementById("signup-form");
+
+  tabButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      tabButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+
+      if (btn.dataset.target === "login-form") {
+        loginForm.style.display = "block";
+        signupForm.style.display = "none";
+      } else {
+        loginForm.style.display = "none";
+        signupForm.style.display = "block";
+      }
+    });
+  });
+
+  /* 3️⃣  SIGNUP HANDLER
+  ------------------------------------------------------------------ */
+  const signupBtn = document.getElementById("signup-btn");
+  const signupMsg = document.getElementById("signup-msg");
+
+  signupBtn.addEventListener("click", async () => {
+    signupMsg.textContent = "";
+    signupMsg.className = "msg";
+
+    const email = document.getElementById("signup-email").value.trim();
+    const password = document.getElementById("signup-password").value.trim();
+
+    if (!email || !password) {
+      signupMsg.textContent = "Please fill email and password.";
+      signupMsg.classList.add("error");
+      return;
+    }
+
+    signupMsg.textContent = "Creating your account...";
+    const { data, error } = await supabaseClient.auth.signUp({ email, password });
+
+    if (error) {
+      signupMsg.textContent = error.message;
+      signupMsg.classList.add("error");
+    } else {
+      signupMsg.textContent = "Account created! You can now log in.";
+      signupMsg.classList.add("success");
+      // auto switch to login tab
+      tabButtons[0].click();
+    }
+  });
+
+  /* 4️⃣  LOGIN HANDLER
+  ------------------------------------------------------------------ */
+  const loginBtn = document.getElementById("login-btn");
+  const loginMsg = document.getElementById("login-msg");
+
+  loginBtn.addEventListener("click", async () => {
+    loginMsg.textContent = "";
+    loginMsg.className = "msg";
+
+    const email = document.getElementById("login-email").value.trim();
+    const password = document.getElementById("login-password").value.trim();
+
+    if (!email || !password) {
+      loginMsg.textContent = "Please enter your email and password.";
+      loginMsg.classList.add("error");
+      return;
+    }
+
+    loginMsg.textContent = "Checking your credentials...";
+    const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+
+    if (error) {
+      loginMsg.textContent = error.message;
+      loginMsg.classList.add("error");
+    } else {
+      loginMsg.textContent = "Login successful! Redirecting to SympAI...";
+      loginMsg.classList.add("success");
+
+      // 5️⃣  SUCCESS PE YAHAN REDIRECT KAR:
+      setTimeout(() => {
+        window.location.href = "index.html";   // <- yahi se tera main SympAI page open hoga
+      }, 800);
+    }
+  });
+</script>
+
+</body>
+</html>
